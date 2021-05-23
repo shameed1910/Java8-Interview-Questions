@@ -3,14 +3,15 @@ package streams;
 public class Employee {
 
         private String name;
+        private Address address;
         private String department;
         private double salary;
 
-    public Employee(String name,String department,double salary) {
+    public Employee(String name,String department,double salary, Address address) {
         this.name = name;
         this.department=department;
         this.salary=salary;
-
+        this.address = address;
     }
 
         public String getName() {
@@ -40,12 +41,22 @@ public class Employee {
         this.salary = salary;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
-        return "{" +
-                "name='" + name + '\'' +
-                ", department='" + department + '\'' +
-                ", salary=" + salary +
-                '}';
+        final StringBuilder sb = new StringBuilder("Employee{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", address=").append(address);
+        sb.append(", department='").append(department).append('\'');
+        sb.append(", salary=").append(salary);
+        sb.append('}');
+        return sb.toString();
     }
 }
